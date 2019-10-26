@@ -1,0 +1,7 @@
+.idea
+build
+load/report*
+node_modules
+*.env
+
+*.DS_Store

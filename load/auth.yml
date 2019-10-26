@@ -1,0 +1,28 @@
+config:
+  target: 'https://restful-booker.herokuapp.com'
+  phases:
+    - duration: 10
+      arrivalRate: 5
+  defaults:
+    headers:
+      accept: 'application/json'
+  processor: './utils.js'
+  plugins:
+    publish-metrics:
+      - type: datadog
+        apiKey: "{{ $processEnvironment.DD_API_KEY }}"
+        prefix: artillery.
+        send: true
+        tags:
+          - "service:auth"
+        event:
+          tags:
+            - "service:auth"
+scenarios:
+  - name: "auth"
+    flow:
+      - post:
+          url: '/auth'
+          json:
+            username: '{{ $processEnvironment.AUTH_USERNAME }}'
+            password: '{{ $processEnvironment.AUTH_PASSWORD }}'
