@@ -1,8 +1,5 @@
 config:
   target: 'https://restful-booker.herokuapp.com'
-  phases:
-    - duration: 10
-      arrivalRate: 5
   defaults:
     headers:
       accept: 'application/json'

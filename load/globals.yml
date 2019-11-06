@@ -1,0 +1,4 @@
+config:
+  phases:
+    - duration: 10
+      arrivalRate: 5

@@ -19,7 +19,7 @@
   },
   "scripts": {
     "test": "jest /test --verbose",
-    "test-load": "artillery run -o load/report.json",
+    "test-load": "artillery run -o load/report.json --config load/globals.yml",
     "load-report": "artillery report load/report.json"
   },
   "devDependencies": {
